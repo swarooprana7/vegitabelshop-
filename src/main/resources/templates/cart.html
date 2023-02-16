@@ -8,17 +8,24 @@
 
 <div th:replace="fragments/header :: header"></div>
 
-<div class="container">
-    <div th:if="${!products.isEmpty()}" class="col-3">
-        <h2 th:text="#{cart.title}"></h2>
-        <div class="card" th:each="product : ${products.entrySet()}">
-            <h3 th:text="${product.getKey().getName()}"></h3>
-            <h4 th:text="${product.getValue()}"></h4>
-            <h4 th:text="${product.getKey().getPrice()}"></h4>
-            <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}" class="col-md-1">
-                <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
-            </a>
-            <br>
+<div class="container-fluid">
+    <div th:if="${!products.isEmpty()}" style="width: 100%; display: flex; flex-direction: column">
+        <h2 style="text-align: center" th:text="#{cart.title}"></h2>
+        <div style="width: 80%; padding: 20px; background: #fff; border-radius: 10px; align-self: center; margin-top: 10px;
+        display: flex; justify-content: space-between" th:each="product : ${products.entrySet()}
+">
+           <div style="flex: 1">
+               <img class="card-img-top" style="width: 50%" th:src="${product.getKey().getImageUrl()}" alt="Card image cap">
+           </div>
+            <div style="display: flex; flex: 4; align-items: flex-end; flex-direction: column">
+                <h3 th:text="${product.getKey().getName()}"></h3>
+                <h4 th:text="${product.getValue()}"></h4>
+                <h4 th:text="${product.getKey().getPrice()}"></h4>
+                <a th:href="@{'/cart/remove/{id}'(id=${product.getKey().getId()})}">
+                    <button type="button" class="btn btn-primary" th:text="#{cart.remove}"></button>
+                </a>
+                <br />
+            </div>
         </div>
     </div>
 
@@ -40,8 +47,14 @@
     </div>
 </div>
 
-<div th:replace="fragments/footer :: footer"></div>
+
 
 </body>
+<script>
+    document.querySelector('button.btn.btn-success').addEventListener('click', function() {
+        alert('Currently we dont accept online payment');
+    });
+</script>
+
 
 </html>

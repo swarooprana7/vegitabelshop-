@@ -8,3 +8,5 @@ function changeLanguage(lang) {
 $("#select-lang").change(function(){
     changeLanguage($(this).val());
 });
+
+

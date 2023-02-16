@@ -2,26 +2,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head th:replace="fragments/header :: header-css">
+
 </head>
 
 <body>
 
+
+
     <div th:replace="fragments/header :: header"></div>
 
-    <div class="container">
+    <div style="width: 100%; height: 500px; overflow: hidden;" class="hello">
+        <div style="display: flex; align-items: center;">
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/L1-YXNP8603-1200X300-5thDEC22.jpg" style="width: 100%; height: 500px;">
+
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/L1-YXNP10934-1200X300-30thDEC22.jpg" style="width: 100%; height: 500px;">
+
+            <img src="https://www.bigbasket.com/media/uploads/banner_images/L1-YXNP8606-1200X300-5thDEC22.jpg" style="width: 100%; height: 500px;">
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container-fluid">
+        <div style="display: flex; justify-content: flex-end; margin-top: 20px">
+            <span th:text="#{product.count} + ' ' + ${productsCount}"></span>
+        </div>
         <div class="row">
-            <nav class="side-menu">
-                <h3>Category</h3>
-                <ul>
-                    <li th:each="cat: ${categories}"><a th:href="@{/searchByCategory(categoryId=${cat.id})}" th:text="${cat.categoryName}"></a></li>
-                </ul>
-            </nav>
 
         <button sec:authorize="hasRole('ROLE_ADMIN')" class="btn">
         <a th:href="@{product/new}"><i class="fas fa-plus fa-2x"></i></a>
         </button>
-    <div class="col card-deck ml-5 my-3" th:if="${!products.isEmpty()}" >
-                <div class="card" th:each="product : ${products}">
+
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center" th:if="${!products.isEmpty()}" >
+                <div style="display: flex; flex-basis: 10%; flex-direction: column; margin: 20px 20px" th:each="product : ${products}">
                     <div sec:authorize="hasRole('ROLE_ADMIN')" class="admin">
                         <button class="btn">
                             <a th:href="@{'product/delete/' + ${product.getId()}}" ><i class="fas fa-times"></i></a>
@@ -30,24 +46,24 @@
                             <a th:href="@{'product/edit/' + ${product.getId()}}" ><i class="fas fa-wrench"></i></a>
                         </button>
                     </div>
-                    <img class="card-img-top" th:if="${!product.getImage_url().isEmpty()}" th:src="${product.getImage_url()}" alt="Card image cap">
+                    <img style="height: 210px" class="card-img-top" th:if="${!product.getImageUrl().isEmpty()}" th:src="${product.getImageUrl()}" alt="Card image cap">
                     <div class="card-body">
                         <h4 class="card-title" th:text="${product.getName()}"></h4>
                         <p class="card-text" th:text="${product.getDescription()}"></p>
                     </div>
                     <div class="card-footer">
                         <p th:text="${product.getPrice()}"></p>
-                        <a th:href="${'/cart/add/' + product.getId()}" class="btn btn-lg btn-outline-info btn-block" th:text="#{product.add}" ></a>
+                        <a th:href="${'/cart/add/' + product.getId()}" sec:authorize="hasRole('ROLE_USER')" class="btn btn-lg btn-outline-info btn-block" th:text="#{product.add}" ></a>
                     </div>
                 </div>
     </div>
-        <div>
-         <span th:text="#{product.count} + ' ' + ${productsCount}"></span>
-        </div>
+
         </div>
     </div>
 
     <div th:replace="fragments/footer :: footer"></div>
+
+
 
 </body>
 

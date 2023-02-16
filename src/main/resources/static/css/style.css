@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: rgb(209, 209, 216);
+    background: rgb(212, 234, 217);
     position: relative;
     margin: 0;
     padding-bottom: 6rem;
@@ -65,3 +65,83 @@ nav {
     width: 44px;
     height: 44px;
 }
+.slider-frame{
+    overflow: hidden;
+    height: 500px;
+    width: 1515px;
+    margin-left:1px;
+    margin-top: 1px;
+}
+
+@-webkit-keyframes slide_animation  {
+    0% {left:0px;}
+    10% {left:0px;}
+    20% {left:1200px;}
+    30% {left:1200px;}
+    40% {left:2400px;}
+    50% {left:2400px;}
+    60% {left:1200px;}
+    70% {left:1200px;}
+    80% {left:0px;}
+    90% {left:0px;}
+    100% {left:0px;}
+}
+
+
+.hello img {
+     animation: slider 10s linear infinite;
+ }
+
+@keyframes slider {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200.00%);
+    }
+}
+
+
+.slide-images{
+    width: 5000px;
+    height: 800px;
+    margin: 0 0 0 -2400px;
+    position: relative;
+    -webkit-animation-name: slide_animation;
+    -webkit-animation-duration: 28s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: running;
+}
+
+.img-container{
+    height: 500px;
+    width: 1200px;
+    position: relative;
+    float: left;
+}
+
+/*.bg-light{*/
+/*    background-color: #269348;*/
+/*}*/
+
+.bg-success{
+    background-color: #295c38;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: lightgray;
+}
+

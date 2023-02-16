@@ -5,26 +5,46 @@
 </head>
 
 <body>
-    <div th:fragment="footer">
-        <div class="container">
-            <footer>
-                <span th:text="#{footer.copyright}"></span>
-                <span>
-                    <a th:href="@{/about}" th:text="#{about.name}"></a>
-                </span>
-                <label>
-                    <select class="custom-select" id="select-lang">
-                        <option value="eng" th:selected="${#locale.getLanguage().toString() == 'en'}" th:text="#{footer.language.en}"></option>
-                        <option value="pl" th:selected="${#locale.getLanguage().toString() == 'pl'}" th:text="#{footer.language.pl}"></option>
-                        <option disabled value="den" th:selected="${#locale.getLanguage().toString() == 'den'}" th:text="#{footer.language.den}"></option>
-                    </select>
-                </label>
-            </footer>
-        </div>
+
+        <footer style="display: flex; flex: 1;  flex-direction: column; align-items: center; background-color: #333333; color: #ffffff; width: 100%">
+<!--            <div style="display: flex; justify-content: space-between; width: 80%; padding: 20px 0;">-->
+<!--                <div style="display: flex; flex-direction: column; align-items: center;">-->
+<!--                    <h3 style="margin: 0 0 10px 0;">About Us</h3>-->
+<!--                    <p style="margin: 0;">We are a company dedicated to providing quality products and services to our customers.</p>-->
+<!--                </div>-->
+<!--                <div style="display: flex; flex-direction: column; align-items: center;">-->
+<!--                    <h3 style="margin: 0 0 10px 0;">Useful Links</h3>-->
+<!--                    <div style="display: flex; flex-direction: column;">-->
+<!--                        <a href="#" style="color: #ffffff; text-decoration: none;">Home</a>-->
+<!--                        <a href="#" style="color: #ffffff; text-decoration: none;">Services</a>-->
+<!--                        <a href="#" style="color: #ffffff; text-decoration: none;">Contact Us</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div style="width: 100%; padding: 20px 0;">
+
+
+                <p style="margin: 0; text-align: center;">Copyright &copy; 2022</p>
+            </div>
+
+            <!--                -->
+            <!--&lt;!&ndash;                <span th:text="#{footer.copyright}"></span>&ndash;&gt;-->
+            <!--                <span>-->
+            <!--                    <a th:href="@{/about}" th:text="#{about.name}"></a>-->
+            <!--                </span>-->
+            <!--                <label>-->
+            <!--&lt;!&ndash;                    <select class="custom-select" id="select-lang">&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <option value="eng" th:selected="${#locale.getLanguage().toString() == 'en'}" th:text="#{footer.language.en}"></option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <option value="pl" th:selected="${#locale.getLanguage().toString() == 'pl'}" th:text="#{footer.language.pl}"></option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <option disabled value="den" th:selected="${#locale.getLanguage().toString() == 'den'}" th:text="#{footer.language.den}"></option>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </select>&ndash;&gt;-->
+            <!--                </label>-->
+        </footer>
+
+
         <script type="text/javascript" th:src="@{webjars/jquery/3.3.1-1/jquery.min.js}"></script>
         <script type="text/javascript" th:src="@{webjars/bootstrap/4.1.0/js/bootstrap.min.js}"></script>
         <script type="text/javascript" th:src="@{/js/lang.js}"></script>
-    </div>
 </body>
 
 </html>

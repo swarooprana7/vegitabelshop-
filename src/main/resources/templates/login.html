@@ -4,11 +4,12 @@
 <head th:replace="fragments/header :: header-css">
 </head>
 
-<body>
+<body style="background: url('https://images5.alphacoders.com/794/thumb-1920-794224.jpg')">
     <div th:replace="fragments/header :: header"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <div class="container" style="opacity: 0.9">
+        <div class="row" style="margin-top:20px; display: flex; flex-direction: column; align-items: center">
+            <div class="col-xs-12 col-sm-8 col-md-5 col-sm-offset-2 col-md-offset-3" style="padding: 15px; background-color: #fff;
+                border-radius: 10px; elevation: higher ">
                 <form autocomplete="off" th:action="@{/login}" class="form-signin" method="POST">
                     <div th:if="${param.logout}">
                         <div class="alert alert-info" th:text="#{login.alert.logged_out}"></div>
@@ -31,8 +32,8 @@
                             <a th:href="@{/register}" th:text="#{register.button}"></a>
                         </span>
                         <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <input type="submit" name="login-sumbit" id="login-sumbit" class="btn btn-lg btn-primary btn-block" th:value="#{user.log_in}" />
+                            <div class="col-xs-6 col-sm-6 col-md-6" style="display: flex; justify-content: center">
+                                <input type="submit" name="login-submit" id="login-submit" class="btn btn-lg btn-primary btn-block" style="width: 70%" th:value="#{user.log_in}" />
                             </div>
                         </div>
                     </fieldset>
@@ -40,7 +41,6 @@
             </div>
         </div>
     </div>
-    <div th:replace="fragments/footer :: footer"></div>
 </body>
 
 </html>
